@@ -82,9 +82,9 @@ public class CafeManagementSystem {
 
 
         }
-        System.out.println("현재 주문의 총 매출은: $" + totalsales);
+        System.out.println("현재 주문의 총 매출은: $" + totalsales + " 입니다.");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("주문 중 가장 큰 주문액은: $" + maxOrderAmount);
+        System.out.println("주문 중 가장 큰 주문액은: $" + maxOrderAmount + " 입니다.");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
 
         // 1. 사원 별 주문 처리 건수 사원아이디, 주문데이터의 사원아이디 비교 후 같으면 주문처리 건수를 변수선언해서 카운드 후치가산하여 저장하고 1번째 for문 속 2번째 for문 밖에서선언 및 프린트
@@ -121,10 +121,10 @@ public class CafeManagementSystem {
                 topSalesEmId = employee.getEmployeeId();
                 topSalesEmName = employee.getName();
             }
-            System.out.println(employee.getName() + "사원의 총 판매량은 " + totalAmountOfEmployee);
+            System.out.println(employee.getName() + "사원의 총 판매액은: $" + totalAmountOfEmployee + " 입니다.");
             System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
 
-        }System.out.println("최고 매출액을 달성한 사원명: " + topSalesEmName + " 사번: " + topSalesEmId + "번" + " $" + topSalesAmount);
+        }System.out.println("최고 매출액을 달성한 사원명: " + topSalesEmName + " 사번: " + topSalesEmId + "번" + " $" + topSalesAmount + " 입니다.");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
 
 
@@ -134,6 +134,7 @@ public class CafeManagementSystem {
         // 2번째 for문 안 if문으로 product.id와 order.productId가 같으면 order.quantity를 누적저장 저장하는 변수선언 및 초기화(0)는 1번째 for문 안 2번째 for문 밖
         // 그렇게 저장된 변수를 새로운 변수와 if 문으로 비교하여 더큰게 오면 그 변수를 새로운 변수에 저장하고 그 레벨에서 상품의 이름과 총 판매갯수를 저장하고 1번째 for문 밖에서 변수를 이용하여 프린트
         // 변수를 잡아먹지 않고 리턴하여 프린트메소드를 따로 만들면 좋지만 일단.... 구현 먼저...
+
         int topOrderQuantity = 0;
         String topOrderProductName = null;
         for(Product product : products) {
@@ -149,6 +150,7 @@ public class CafeManagementSystem {
             }
         }
         System.out.println("가장 많이 팔린 제품은: " + topOrderProductName + "이고 판매 수량은: " + topOrderQuantity + "개 입니다.");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
     }
 
 
