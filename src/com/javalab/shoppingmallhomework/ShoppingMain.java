@@ -19,15 +19,16 @@ public class ShoppingMain {
         printOrderList(orders);
 
         //총 주문금액 출력
-        printAllTotalAmount(orders);
+        TotalOrderAmount(orders);
     }
 
-    private static void printAllTotalAmount(Order[] orders) {
+    // 전체 주문 금액 출력 메소드
+    private static void TotalOrderAmount(Order[] orders) {
         double totalAmount = 0.0;
         for (Order order : orders) {
             totalAmount += order.getTotalAmount();
         }
-        System.out.println("쇼핑몰 총 주문금액은: " + totalAmount);
+        System.out.println("쇼핑몰 총 주문금액은: $" + totalAmount);
     }
 
 
@@ -47,9 +48,12 @@ public class ShoppingMain {
         System.out.println("=======================================================");
         System.out.println("ProductId   ProductName     Price   Stock");
         System.out.println("-------------------------------------------------------");
-        for (int i = 0; i < products.length; i++) {
-            System.out.println(products[i].getProductId() + "\t\t\t" + products[i].getProductName() + "\t\t\t" + products[i].getPrice() + "\t" +  products[i].getStock());
+        for(Product product : products) {
+            System.out.println(product.getProductId() + "\t\t\t" + product.getProductName() + "\t\t\t" + product.getPrice() + "\t" +  product.getStock());
         }
+//        for (int i = 0; i < products.length; i++) {
+//            System.out.println(products[i].getProductId() + "\t\t\t" + products[i].getProductName() + "\t\t\t" + products[i].getPrice() + "\t" +  products[i].getStock());
+//        }
         System.out.println("=======================================================");
     }
 
@@ -57,14 +61,17 @@ public class ShoppingMain {
     // 회원목록 데이터를 출력하는 메소드
     private static void printMemberList(Member[] members) {
         System.out.println("=======================================================");
-            System.out.println("Id       Pw     Name   Email");
+        System.out.println("Id       Pw     Name   Email");
         System.out.println("-------------------------------------------------------");
-            for (int i = 0; i < members.length; i++) {
-                System.out.println(members[i].getId() + "\t" + members[i].getPassword() + "\t" + members[i].getName() + "\t" +  members[i].getEmail());
-            }
+        for(Member member : members) {
+            System.out.println(member.getId() + "\t" + member.getPassword() + "\t" + member.getName() + "\t" + member.getEmail());
+        }
+//            for (int i = 0; i < members.length; i++) {
+//                System.out.println(members[i].getId() + "\t" + members[i].getPassword() + "\t" + members[i].getName() + "\t" +  members[i].getEmail());
+//            }
         System.out.println("=======================================================");
     }
-
+    // 주문정보 저장용 배열 5칸
     private static Order[] initializeOrderData() {
         Order[] orders = new Order[5];
         orders[0] = new Order(1, "user1", 1, 2, 1000.00);
